@@ -8,6 +8,8 @@ import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 import UploadProductPage from "./views/UploadProductPage/UploadProductPage";
+import DetailProductPage from "./views/DetailProductPage/DetailProductPage";
+import CartPage from "./views/CartPage/CartPage";
 
 //null   Anyone Can go inside  - 아무나 접근 O
 //true   only logged in user can go inside  - 로그인한 유저만 접근 O
@@ -27,6 +29,12 @@ function App() {
             path="/product/upload"
             component={Auth(UploadProductPage, true)}
           />
+          <Route
+            exact
+            path="/product/:productId"
+            component={Auth(DetailProductPage, null)}
+          />
+          <Route exact path="/user/cart" component={Auth(CartPage, true)} />
         </Switch>
       </div>
       <Footer />
